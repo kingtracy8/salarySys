@@ -227,5 +227,18 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <resources>
+
+
+      <!--maven项目默认是不编译xml,如果需要在test目录下测试MyBatis则需要加上强制编译xml文件的代码-->
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
   </build>
 </project>

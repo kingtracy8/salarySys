@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hccnnet.salarySys.IDao.SalaryMapper" >
+  <resultMap id="BaseResultMap" type="com.hccnnet.salarySys.domain.Salary" >
+    <id column="sa_id" property="saId" jdbcType="INTEGER" />
+    <result column="date" property="date" jdbcType="DATE" />
+    <result column="month" property="month" jdbcType="CHAR" />
+    <result column="ep_id" property="epId" jdbcType="INTEGER" />
+    <result column="ep_name" property="epName" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="DECIMAL" />
+    <result column="annual" property="annual" jdbcType="DECIMAL" />
+    <result column="global" property="global" jdbcType="DECIMAL" />
+    <result column="profession" property="profession" jdbcType="DECIMAL" />
+    <result column="overtime" property="overtime" jdbcType="DECIMAL" />
+    <result column="welfare" property="welfare" jdbcType="DECIMAL" />
+    <result column="special" property="special" jdbcType="DECIMAL" />
+    <result column="special1" property="special1" jdbcType="DECIMAL" />
+    <result column="special2" property="special2" jdbcType="DECIMAL" />
+    <result column="other_welfare" property="otherWelfare" jdbcType="DECIMAL" />
+    <result column="monthly_performance" property="monthlyPerformance" jdbcType="DECIMAL" />
+    <result column="should_pay" property="shouldPay" jdbcType="DECIMAL" />
+    <result column="pension_d" property="pensionD" jdbcType="DECIMAL" />
+    <result column="pension_c" property="pensionC" jdbcType="DECIMAL" />
+    <result column="idleness_d" property="idlenessD" jdbcType="DECIMAL" />
+    <result column="idleness_c" property="idlenessC" jdbcType="DECIMAL" />
+    <result column="medical_d" property="medicalD" jdbcType="DECIMAL" />
+    <result column="medical_c" property="medicalC" jdbcType="DECIMAL" />
+    <result column="
+enterprise_annuity" property="
+enterpriseAnnuity" jdbcType="DECIMAL" />
+    <result column="
+housing" property="
+housing" jdbcType="DECIMAL" />
+    <result column="
+withhold_other" property="
+withholdOther" jdbcType="DECIMAL" />
+    <result column="
+withhold_w_e" property="
+withholdWE" jdbcType="DECIMAL" />
+    <result column="
+withhold_rent" property="
+withholdRent" jdbcType="DECIMAL" />
+    <result column="
+withhold_union" property="
+withholdUnion" jdbcType="DECIMAL" />
+    <result column="
+withhold_trash" property="
+withholdTrash" jdbcType="DECIMAL" />
+    <result column="tax" property="tax" jdbcType="DECIMAL" />
+    <result column="withhold_total" property="withholdTotal" jdbcType="DECIMAL" />
+    <result column="real_total" property="realTotal" jdbcType="DECIMAL" />
+    <result column="last" property="last" jdbcType="DECIMAL" />
+    <result column="this_d" property="thisD" jdbcType="DECIMAL" />
+    <result column="tax_refund" property="taxRefund" jdbcType="DECIMAL" />
+    <result column="tax_base" property="taxBase" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    sa_id, date, month, ep_id, ep_name, position, annual, global, profession, overtime, 
+    welfare, special, special1, special2, other_welfare, monthly_performance, should_pay, 
+    pension_d, pension_c, idleness_d, idleness_c, medical_d, medical_c, 
+enterprise_annuity, 
+    
+housing, 
+withhold_other, 
+withhold_w_e, 
+withhold_rent, 
+withhold_union, 
+withhold_trash, 
+    tax, withhold_total, real_total, last, this_d, tax_refund, tax_base
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from salary
+    where sa_id = #{saId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from salary
+    where sa_id = #{saId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hccnnet.salarySys.domain.Salary" >
+    insert into salary (sa_id, date, month, 
+      ep_id, ep_name, position, 
+      annual, global, profession, 
+      overtime, welfare, special, 
+      special1, special2, other_welfare, 
+      monthly_performance, should_pay, pension_d, 
+      pension_c, idleness_d, idleness_c, 
+      medical_d, medical_c, 
+enterprise_annuity, 
+      
+housing, 
+withhold_other, 
+withhold_w_e, 
+      
+withhold_rent, 
+withhold_union, 
+withhold_trash, 
+      tax, withhold_total, real_total, 
+      last, this_d, tax_refund, 
+      tax_base)
+    values (#{saId,jdbcType=INTEGER}, #{date,jdbcType=DATE}, #{month,jdbcType=CHAR}, 
+      #{epId,jdbcType=INTEGER}, #{epName,jdbcType=VARCHAR}, #{position,jdbcType=DECIMAL}, 
+      #{annual,jdbcType=DECIMAL}, #{global,jdbcType=DECIMAL}, #{profession,jdbcType=DECIMAL}, 
+      #{overtime,jdbcType=DECIMAL}, #{welfare,jdbcType=DECIMAL}, #{special,jdbcType=DECIMAL}, 
+      #{special1,jdbcType=DECIMAL}, #{special2,jdbcType=DECIMAL}, #{otherWelfare,jdbcType=DECIMAL}, 
+      #{monthlyPerformance,jdbcType=DECIMAL}, #{shouldPay,jdbcType=DECIMAL}, #{pensionD,jdbcType=DECIMAL}, 
+      #{pensionC,jdbcType=DECIMAL}, #{idlenessD,jdbcType=DECIMAL}, #{idlenessC,jdbcType=DECIMAL}, 
+      #{medicalD,jdbcType=DECIMAL}, #{medicalC,jdbcType=DECIMAL}, #{
+enterpriseAnnuity,jdbcType=DECIMAL}, 
+      #{
+housing,jdbcType=DECIMAL}, #{
+withholdOther,jdbcType=DECIMAL}, #{
+withholdWE,jdbcType=DECIMAL}, 
+      #{
+withholdRent,jdbcType=DECIMAL}, #{
+withholdUnion,jdbcType=DECIMAL}, #{
+withholdTrash,jdbcType=DECIMAL}, 
+      #{tax,jdbcType=DECIMAL}, #{withholdTotal,jdbcType=DECIMAL}, #{realTotal,jdbcType=DECIMAL}, 
+      #{last,jdbcType=DECIMAL}, #{thisD,jdbcType=DECIMAL}, #{taxRefund,jdbcType=DECIMAL}, 
+      #{taxBase,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hccnnet.salarySys.domain.Salary" >
+    insert into salary
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="saId != null" >
+        sa_id,
+      </if>
+      <if test="date != null" >
+        date,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+      <if test="epId != null" >
+        ep_id,
+      </if>
+      <if test="epName != null" >
+        ep_name,
+      </if>
+      <if test="position != null" >
+        position,
+      </if>
+      <if test="annual != null" >
+        annual,
+      </if>
+      <if test="global != null" >
+        global,
+      </if>
+      <if test="profession != null" >
+        profession,
+      </if>
+      <if test="overtime != null" >
+        overtime,
+      </if>
+      <if test="welfare != null" >
+        welfare,
+      </if>
+      <if test="special != null" >
+        special,
+      </if>
+      <if test="special1 != null" >
+        special1,
+      </if>
+      <if test="special2 != null" >
+        special2,
+      </if>
+      <if test="otherWelfare != null" >
+        other_welfare,
+      </if>
+      <if test="monthlyPerformance != null" >
+        monthly_performance,
+      </if>
+      <if test="shouldPay != null" >
+        should_pay,
+      </if>
+      <if test="pensionD != null" >
+        pension_d,
+      </if>
+      <if test="pensionC != null" >
+        pension_c,
+      </if>
+      <if test="idlenessD != null" >
+        idleness_d,
+      </if>
+      <if test="idlenessC != null" >
+        idleness_c,
+      </if>
+      <if test="medicalD != null" >
+        medical_d,
+      </if>
+      <if test="medicalC != null" >
+        medical_c,
+      </if>
+      <if test="
+enterpriseAnnuity != null" >
+        
+enterprise_annuity,
+      </if>
+      <if test="
+housing != null" >
+        
+housing,
+      </if>
+      <if test="
+withholdOther != null" >
+        
+withhold_other,
+      </if>
+      <if test="
+withholdWE != null" >
+        
+withhold_w_e,
+      </if>
+      <if test="
+withholdRent != null" >
+        
+withhold_rent,
+      </if>
+      <if test="
+withholdUnion != null" >
+        
+withhold_union,
+      </if>
+      <if test="
+withholdTrash != null" >
+        
+withhold_trash,
+      </if>
+      <if test="tax != null" >
+        tax,
+      </if>
+      <if test="withholdTotal != null" >
+        withhold_total,
+      </if>
+      <if test="realTotal != null" >
+        real_total,
+      </if>
+      <if test="last != null" >
+        last,
+      </if>
+      <if test="thisD != null" >
+        this_d,
+      </if>
+      <if test="taxRefund != null" >
+        tax_refund,
+      </if>
+      <if test="taxBase != null" >
+        tax_base,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="saId != null" >
+        #{saId,jdbcType=INTEGER},
+      </if>
+      <if test="date != null" >
+        #{date,jdbcType=DATE},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=CHAR},
+      </if>
+      <if test="epId != null" >
+        #{epId,jdbcType=INTEGER},
+      </if>
+      <if test="epName != null" >
+        #{epName,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=DECIMAL},
+      </if>
+      <if test="annual != null" >
+        #{annual,jdbcType=DECIMAL},
+      </if>
+      <if test="global != null" >
+        #{global,jdbcType=DECIMAL},
+      </if>
+      <if test="profession != null" >
+        #{profession,jdbcType=DECIMAL},
+      </if>
+      <if test="overtime != null" >
+        #{overtime,jdbcType=DECIMAL},
+      </if>
+      <if test="welfare != null" >
+        #{welfare,jdbcType=DECIMAL},
+      </if>
+      <if test="special != null" >
+        #{special,jdbcType=DECIMAL},
+      </if>
+      <if test="special1 != null" >
+        #{special1,jdbcType=DECIMAL},
+      </if>
+      <if test="special2 != null" >
+        #{special2,jdbcType=DECIMAL},
+      </if>
+      <if test="otherWelfare != null" >
+        #{otherWelfare,jdbcType=DECIMAL},
+      </if>
+      <if test="monthlyPerformance != null" >
+        #{monthlyPerformance,jdbcType=DECIMAL},
+      </if>
+      <if test="shouldPay != null" >
+        #{shouldPay,jdbcType=DECIMAL},
+      </if>
+      <if test="pensionD != null" >
+        #{pensionD,jdbcType=DECIMAL},
+      </if>
+      <if test="pensionC != null" >
+        #{pensionC,jdbcType=DECIMAL},
+      </if>
+      <if test="idlenessD != null" >
+        #{idlenessD,jdbcType=DECIMAL},
+      </if>
+      <if test="idlenessC != null" >
+        #{idlenessC,jdbcType=DECIMAL},
+      </if>
+      <if test="medicalD != null" >
+        #{medicalD,jdbcType=DECIMAL},
+      </if>
+      <if test="medicalC != null" >
+        #{medicalC,jdbcType=DECIMAL},
+      </if>
+      <if test="
+enterpriseAnnuity != null" >
+        #{
+enterpriseAnnuity,jdbcType=DECIMAL},
+      </if>
+      <if test="
+housing != null" >
+        #{
+housing,jdbcType=DECIMAL},
+      </if>
+      <if test="
+withholdOther != null" >
+        #{
+withholdOther,jdbcType=DECIMAL},
+      </if>
+      <if test="
+withholdWE != null" >
+        #{
+withholdWE,jdbcType=DECIMAL},
+      </if>
+      <if test="
+withholdRent != null" >
+        #{
+withholdRent,jdbcType=DECIMAL},
+      </if>
+      <if test="
+withholdUnion != null" >
+        #{
+withholdUnion,jdbcType=DECIMAL},
+      </if>
+      <if test="
+withholdTrash != null" >
+        #{
+withholdTrash,jdbcType=DECIMAL},
+      </if>
+      <if test="tax != null" >
+        #{tax,jdbcType=DECIMAL},
+      </if>
+      <if test="withholdTotal != null" >
+        #{withholdTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="realTotal != null" >
+        #{realTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="last != null" >
+        #{last,jdbcType=DECIMAL},
+      </if>
+      <if test="thisD != null" >
+        #{thisD,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRefund != null" >
+        #{taxRefund,jdbcType=DECIMAL},
+      </if>
+      <if test="taxBase != null" >
+        #{taxBase,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hccnnet.salarySys.domain.Salary" >
+    update salary
+    <set >
+      <if test="date != null" >
+        date = #{date,jdbcType=DATE},
+      </if>
+      <if test="month != null" >
+        month = #{month,jdbcType=CHAR},
+      </if>
+      <if test="epId != null" >
+        ep_id = #{epId,jdbcType=INTEGER},
+      </if>
+      <if test="epName != null" >
+        ep_name = #{epName,jdbcType=VARCHAR},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=DECIMAL},
+      </if>
+      <if test="annual != null" >
+        annual = #{annual,jdbcType=DECIMAL},
+      </if>
+      <if test="global != null" >
+        global = #{global,jdbcType=DECIMAL},
+      </if>
+      <if test="profession != null" >
+        profession = #{profession,jdbcType=DECIMAL},
+      </if>
+      <if test="overtime != null" >
+        overtime = #{overtime,jdbcType=DECIMAL},
+      </if>
+      <if test="welfare != null" >
+        welfare = #{welfare,jdbcType=DECIMAL},
+      </if>
+      <if test="special != null" >
+        special = #{special,jdbcType=DECIMAL},
+      </if>
+      <if test="special1 != null" >
+        special1 = #{special1,jdbcType=DECIMAL},
+      </if>
+      <if test="special2 != null" >
+        special2 = #{special2,jdbcType=DECIMAL},
+      </if>
+      <if test="otherWelfare != null" >
+        other_welfare = #{otherWelfare,jdbcType=DECIMAL},
+      </if>
+      <if test="monthlyPerformance != null" >
+        monthly_performance = #{monthlyPerformance,jdbcType=DECIMAL},
+      </if>
+      <if test="shouldPay != null" >
+        should_pay = #{shouldPay,jdbcType=DECIMAL},
+      </if>
+      <if test="pensionD != null" >
+        pension_d = #{pensionD,jdbcType=DECIMAL},
+      </if>
+      <if test="pensionC != null" >
+        pension_c = #{pensionC,jdbcType=DECIMAL},
+      </if>
+      <if test="idlenessD != null" >
+        idleness_d = #{idlenessD,jdbcType=DECIMAL},
+      </if>
+      <if test="idlenessC != null" >
+        idleness_c = #{idlenessC,jdbcType=DECIMAL},
+      </if>
+      <if test="medicalD != null" >
+        medical_d = #{medicalD,jdbcType=DECIMAL},
+      </if>
+      <if test="medicalC != null" >
+        medical_c = #{medicalC,jdbcType=DECIMAL},
+      </if>
+      <if test="
+enterpriseAnnuity != null" >
+        
+enterprise_annuity = #{
+enterpriseAnnuity,jdbcType=DECIMAL},
+      </if>
+      <if test="
+housing != null" >
+        
+housing = #{
+housing,jdbcType=DECIMAL},
+      </if>
+      <if test="
+withholdOther != null" >
+        
+withhold_other = #{
+withholdOther,jdbcType=DECIMAL},
+      </if>
+      <if test="
+withholdWE != null" >
+        
+withhold_w_e = #{
+withholdWE,jdbcType=DECIMAL},
+      </if>
+      <if test="
+withholdRent != null" >
+        
+withhold_rent = #{
+withholdRent,jdbcType=DECIMAL},
+      </if>
+      <if test="
+withholdUnion != null" >
+        
+withhold_union = #{
+withholdUnion,jdbcType=DECIMAL},
+      </if>
+      <if test="
+withholdTrash != null" >
+        
+withhold_trash = #{
+withholdTrash,jdbcType=DECIMAL},
+      </if>
+      <if test="tax != null" >
+        tax = #{tax,jdbcType=DECIMAL},
+      </if>
+      <if test="withholdTotal != null" >
+        withhold_total = #{withholdTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="realTotal != null" >
+        real_total = #{realTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="last != null" >
+        last = #{last,jdbcType=DECIMAL},
+      </if>
+      <if test="thisD != null" >
+        this_d = #{thisD,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRefund != null" >
+        tax_refund = #{taxRefund,jdbcType=DECIMAL},
+      </if>
+      <if test="taxBase != null" >
+        tax_base = #{taxBase,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where sa_id = #{saId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hccnnet.salarySys.domain.Salary" >
+    update salary
+    set date = #{date,jdbcType=DATE},
+      month = #{month,jdbcType=CHAR},
+      ep_id = #{epId,jdbcType=INTEGER},
+      ep_name = #{epName,jdbcType=VARCHAR},
+      position = #{position,jdbcType=DECIMAL},
+      annual = #{annual,jdbcType=DECIMAL},
+      global = #{global,jdbcType=DECIMAL},
+      profession = #{profession,jdbcType=DECIMAL},
+      overtime = #{overtime,jdbcType=DECIMAL},
+      welfare = #{welfare,jdbcType=DECIMAL},
+      special = #{special,jdbcType=DECIMAL},
+      special1 = #{special1,jdbcType=DECIMAL},
+      special2 = #{special2,jdbcType=DECIMAL},
+      other_welfare = #{otherWelfare,jdbcType=DECIMAL},
+      monthly_performance = #{monthlyPerformance,jdbcType=DECIMAL},
+      should_pay = #{shouldPay,jdbcType=DECIMAL},
+      pension_d = #{pensionD,jdbcType=DECIMAL},
+      pension_c = #{pensionC,jdbcType=DECIMAL},
+      idleness_d = #{idlenessD,jdbcType=DECIMAL},
+      idleness_c = #{idlenessC,jdbcType=DECIMAL},
+      medical_d = #{medicalD,jdbcType=DECIMAL},
+      medical_c = #{medicalC,jdbcType=DECIMAL},
+      
+enterprise_annuity = #{
+enterpriseAnnuity,jdbcType=DECIMAL},
+      
+housing = #{
+housing,jdbcType=DECIMAL},
+      
+withhold_other = #{
+withholdOther,jdbcType=DECIMAL},
+      
+withhold_w_e = #{
+withholdWE,jdbcType=DECIMAL},
+      
+withhold_rent = #{
+withholdRent,jdbcType=DECIMAL},
+      
+withhold_union = #{
+withholdUnion,jdbcType=DECIMAL},
+      
+withhold_trash = #{
+withholdTrash,jdbcType=DECIMAL},
+      tax = #{tax,jdbcType=DECIMAL},
+      withhold_total = #{withholdTotal,jdbcType=DECIMAL},
+      real_total = #{realTotal,jdbcType=DECIMAL},
+      last = #{last,jdbcType=DECIMAL},
+      this_d = #{thisD,jdbcType=DECIMAL},
+      tax_refund = #{taxRefund,jdbcType=DECIMAL},
+      tax_base = #{taxBase,jdbcType=DECIMAL}
+    where sa_id = #{saId,jdbcType=INTEGER}
+  </update>
+</mapper>

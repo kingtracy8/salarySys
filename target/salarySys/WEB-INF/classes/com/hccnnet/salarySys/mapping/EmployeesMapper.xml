@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hccnnet.salarySys.IDao.EmployeesMapper" >
+  <resultMap id="BaseResultMap" type="com.hccnnet.salarySys.domain.Employees" >
+    <id column="ep_id" property="epId" jdbcType="INTEGER" />
+    <result column="ep_name" property="epName" jdbcType="VARCHAR" />
+    <result column="ep_gender" property="epGender" jdbcType="CHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="id_number" property="idNumber" jdbcType="CHAR" />
+    <result column="native_place" property="nativePlace" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="dept_id" property="deptId" jdbcType="INTEGER" />
+    <result column="department" property="department" jdbcType="VARCHAR" />
+    <result column="employ" property="employ" jdbcType="VARCHAR" />
+    <result column="subjection" property="subjection" jdbcType="VARCHAR" />
+    <result column="attribute1" property="attribute1" jdbcType="VARCHAR" />
+    <result column="attribute2" property="attribute2" jdbcType="VARCHAR" />
+    <result column="attribute3" property="attribute3" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ep_id, ep_name, ep_gender, birthday, nation, id_number, native_place, phone, email, 
+    dept_id, department, employ, subjection, attribute1, attribute2, attribute3, user_name, 
+    password
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from employees
+    where ep_id = #{epId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from employees
+    where ep_id = #{epId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hccnnet.salarySys.domain.Employees" >
+    insert into employees (ep_id, ep_name, ep_gender, 
+      birthday, nation, id_number, 
+      native_place, phone, email, 
+      dept_id, department, employ, 
+      subjection, attribute1, attribute2, 
+      attribute3, user_name, password
+      )
+    values (#{epId,jdbcType=INTEGER}, #{epName,jdbcType=VARCHAR}, #{epGender,jdbcType=CHAR}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{nation,jdbcType=VARCHAR}, #{idNumber,jdbcType=CHAR}, 
+      #{nativePlace,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{deptId,jdbcType=INTEGER}, #{department,jdbcType=VARCHAR}, #{employ,jdbcType=VARCHAR}, 
+      #{subjection,jdbcType=VARCHAR}, #{attribute1,jdbcType=VARCHAR}, #{attribute2,jdbcType=VARCHAR}, 
+      #{attribute3,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hccnnet.salarySys.domain.Employees" >
+    insert into employees
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="epId != null" >
+        ep_id,
+      </if>
+      <if test="epName != null" >
+        ep_name,
+      </if>
+      <if test="epGender != null" >
+        ep_gender,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="idNumber != null" >
+        id_number,
+      </if>
+      <if test="nativePlace != null" >
+        native_place,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="deptId != null" >
+        dept_id,
+      </if>
+      <if test="department != null" >
+        department,
+      </if>
+      <if test="employ != null" >
+        employ,
+      </if>
+      <if test="subjection != null" >
+        subjection,
+      </if>
+      <if test="attribute1 != null" >
+        attribute1,
+      </if>
+      <if test="attribute2 != null" >
+        attribute2,
+      </if>
+      <if test="attribute3 != null" >
+        attribute3,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="epId != null" >
+        #{epId,jdbcType=INTEGER},
+      </if>
+      <if test="epName != null" >
+        #{epName,jdbcType=VARCHAR},
+      </if>
+      <if test="epGender != null" >
+        #{epGender,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null" >
+        #{idNumber,jdbcType=CHAR},
+      </if>
+      <if test="nativePlace != null" >
+        #{nativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null" >
+        #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="department != null" >
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="employ != null" >
+        #{employ,jdbcType=VARCHAR},
+      </if>
+      <if test="subjection != null" >
+        #{subjection,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null" >
+        #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hccnnet.salarySys.domain.Employees" >
+    update employees
+    <set >
+      <if test="epName != null" >
+        ep_name = #{epName,jdbcType=VARCHAR},
+      </if>
+      <if test="epGender != null" >
+        ep_gender = #{epGender,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="idNumber != null" >
+        id_number = #{idNumber,jdbcType=CHAR},
+      </if>
+      <if test="nativePlace != null" >
+        native_place = #{nativePlace,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="deptId != null" >
+        dept_id = #{deptId,jdbcType=INTEGER},
+      </if>
+      <if test="department != null" >
+        department = #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="employ != null" >
+        employ = #{employ,jdbcType=VARCHAR},
+      </if>
+      <if test="subjection != null" >
+        subjection = #{subjection,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute1 != null" >
+        attribute1 = #{attribute1,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute2 != null" >
+        attribute2 = #{attribute2,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute3 != null" >
+        attribute3 = #{attribute3,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ep_id = #{epId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hccnnet.salarySys.domain.Employees" >
+    update employees
+    set ep_name = #{epName,jdbcType=VARCHAR},
+      ep_gender = #{epGender,jdbcType=CHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      nation = #{nation,jdbcType=VARCHAR},
+      id_number = #{idNumber,jdbcType=CHAR},
+      native_place = #{nativePlace,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      dept_id = #{deptId,jdbcType=INTEGER},
+      department = #{department,jdbcType=VARCHAR},
+      employ = #{employ,jdbcType=VARCHAR},
+      subjection = #{subjection,jdbcType=VARCHAR},
+      attribute1 = #{attribute1,jdbcType=VARCHAR},
+      attribute2 = #{attribute2,jdbcType=VARCHAR},
+      attribute3 = #{attribute3,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
+    where ep_id = #{epId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByUserName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from employees
+    <where>
+      <if test="userName != null">
+        AND user_name = #{userName,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+</mapper>
