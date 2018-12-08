@@ -63,10 +63,10 @@ public class LoginController {
                     request.getSession().setAttribute("user",employeesList.get(i));
 
 
-                    return Url;
-                } else {
-                    Url = "error";
-                    request.getSession().setAttribute("userName", request.getParameter("error"));
+                return Url;
+            } else {
+                Url = "error";
+                request.getSession().setAttribute("userName", request.getParameter("error"));
                 }
             }
         } else {

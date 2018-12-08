@@ -65,6 +65,14 @@ public class UploadController {
         return FileUploadService.saveFile(file);
     }
 
+    @RequestMapping(value = "/ToUpload", method = RequestMethod.GET)
+    public String
+    doJumpToUpload(HttpServletRequest request, HttpServletResponse response) {
+
+        return "upload";
+    }
+
+
 }
 
 

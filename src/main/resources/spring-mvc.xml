@@ -74,4 +74,11 @@
         <property name="maxInMemorySize" value="40960"/>
     </bean>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/salarysys/ToUpload"/>
+            <bean class="com.hccnnet.salarySys.interceptor.UploadInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

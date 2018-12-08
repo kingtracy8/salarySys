@@ -44,7 +44,7 @@
             }else if(uploadEventFile.lastIndexOf(".xls")<0){//可判断以.xls和.xlsx结尾的excel
                 alert("只能上传Excel文件");
             }else{
-                var url =  '/user/upload/';
+                var url =  '/salarysys/upload';
                 var formData = new FormData($('form')[0]);
                 user.sendAjaxRequest(url,'POST',formData);
             }
