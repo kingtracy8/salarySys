@@ -6,6 +6,8 @@ import com.hccnnet.salarySys.service.ISalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by trcay on 2018/12/7.
  */
@@ -18,5 +20,15 @@ public class SalaryServiceImpl implements ISalaryService{
     @Override
     public int insertSelective(Salary record) {
         return salaryMapper.insertSelective(record);
+    }
+
+    @Override
+    public List<Salary> selectByEpId(Integer epId, Integer limit, Integer offset) {
+        return salaryMapper.selectByEpId(epId,limit,offset);
+    }
+
+    @Override
+    public Integer selectCountByEpId(Integer epId) {
+        return salaryMapper.selectCountByEpId(epId);
     }
 }

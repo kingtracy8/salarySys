@@ -25,27 +25,13 @@
     <result column="idleness_c" property="idlenessC" jdbcType="DECIMAL" />
     <result column="medical_d" property="medicalD" jdbcType="DECIMAL" />
     <result column="medical_c" property="medicalC" jdbcType="DECIMAL" />
-    <result column="
-enterprise_annuity" property="
-enterpriseAnnuity" jdbcType="DECIMAL" />
-    <result column="
-housing" property="
-housing" jdbcType="DECIMAL" />
-    <result column="
-withhold_other" property="
-withholdOther" jdbcType="DECIMAL" />
-    <result column="
-withhold_w_e" property="
-withholdWE" jdbcType="DECIMAL" />
-    <result column="
-withhold_rent" property="
-withholdRent" jdbcType="DECIMAL" />
-    <result column="
-withhold_union" property="
-withholdUnion" jdbcType="DECIMAL" />
-    <result column="
-withhold_trash" property="
-withholdTrash" jdbcType="DECIMAL" />
+    <result column="enterprise_annuity" property="enterpriseAnnuity" jdbcType="DECIMAL" />
+    <result column="housing" property="housing" jdbcType="DECIMAL" />
+    <result column="withhold_other" property="withholdOther" jdbcType="DECIMAL" />
+    <result column="withhold_w_e" property="withholdWE" jdbcType="DECIMAL" />
+    <result column="withhold_rent" property="withholdRent" jdbcType="DECIMAL" />
+    <result column="withhold_union" property="withholdUnion" jdbcType="DECIMAL" />
+    <result column="withhold_trash" property="withholdTrash" jdbcType="DECIMAL" />
     <result column="tax" property="tax" jdbcType="DECIMAL" />
     <result column="withhold_total" property="withholdTotal" jdbcType="DECIMAL" />
     <result column="real_total" property="realTotal" jdbcType="DECIMAL" />
@@ -566,4 +552,18 @@ withholdTrash,jdbcType=DECIMAL},
       tax_base = #{taxBase,jdbcType=DECIMAL}
     where sa_id = #{saId,jdbcType=INTEGER}
   </update>
+  <select id="selectByEpId" resultMap="BaseResultMap">
+SELECT
+*
+FROM
+	salary
+    where ep_id = #{epId,jdbcType=INTEGER}
+    LIMIT #{limit},#{offset}
+  </select>
+  <select id="selectCountByEpId" resultType="java.lang.Integer">
+    select
+    count(sa_id)
+    from salary
+    where ep_id = #{epId,jdbcType=INTEGER}
+  </select>
 </mapper>

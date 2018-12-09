@@ -88,6 +88,9 @@
                 src="../../images/icon_chara_grey.png">查询员工工资
         </div>
     </div>
+
+
+
     <!-- 右侧具体内容栏目 -->
     <div id="rightContent">
         <a class="toggle-btn" id="nimei">
@@ -103,7 +106,9 @@
             <!-- 工资查询 -->
 
             <div role="tabpanel" class="tab-pane" id="QuerySalary">
-                工资查询
+                <%--<jsp:include page="SelfSalaryInfo.jsp"></jsp:include>--%>
+                <a href="/salarysys/getSelfSalaryPage" target="#ifrbody1">去查询</a>
+                <%--<iframe id="ifrbody2" name="ifrbody2" src="http://localhost:8080/salarysys/getSelfSalaryPage" frameborder="0" onload="changeFrameHeight()" scrolling="no"></iframe>--%>
             </div>
             <!--工资表上传-->
 
@@ -120,6 +125,9 @@
 
         </div>
     </div>
+
+
+
 </div>
 <script src="../../js/jquery.nouislider.js"></script>
 <script>
@@ -139,11 +147,12 @@
     }
     function changeFrameHeight() {
         var ifm = document.getElementById("ifrbody1");
-        //        得到屏幕左侧导航栏的长度
-        var leftMenu = document.getElementById("leftMeun");
-        var lmWidth = leftMenu.width;
         ifm.height = document.documentElement.clientHeight;
-        ifm.width = document.documentElement.clientWidth-lmWidth;
+        ifm.width = document.documentElement.clientWidth;
+
+        var ifm2 = document.getElementById("ifrbody2");
+        ifm2.height = document.documentElement.clientHeight;
+        ifm2.width = document.documentElement.clientWidth;
     }
     window.onload = function () {
         changeFrameHeight();
@@ -151,6 +160,11 @@
     window.onresize = function () {
         changeFrameHeight();
     }
+
+
+
+
+
 
 </script>
 </body>
