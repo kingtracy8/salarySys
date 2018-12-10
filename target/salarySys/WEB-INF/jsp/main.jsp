@@ -106,8 +106,8 @@
             <!-- 工资查询 -->
 
             <div role="tabpanel" class="tab-pane" id="QuerySalary">
-                <%--<jsp:include page="SelfSalaryInfo.jsp"></jsp:include>--%>
-                <a href="/salarysys/getSelfSalaryPage" target="#ifrbody1">去查询</a>
+                <jsp:include page="SelfSalaryInfo.jsp"></jsp:include>
+                <h3><a href="/salarysys/getSelfSalaryPage" target="#ifrbody1">新页面打开</a></h3>
                 <%--<iframe id="ifrbody2" name="ifrbody2" src="http://localhost:8080/salarysys/getSelfSalaryPage" frameborder="0" onload="changeFrameHeight()" scrolling="no"></iframe>--%>
             </div>
             <!--工资表上传-->
