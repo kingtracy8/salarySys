@@ -1,11 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <meta charset="UTF-8">
     <title>salarySys</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
     <script src="../../js/bootstrap.min.js"></script>
     <style>
         #from {
@@ -73,7 +75,19 @@
             </div>
         </div>
     </div>
-</form>
 
+    <div id="msg" style="display: none;"><c:out value="${sessionScope.msg}"></c:out></div>
+</form>
+<script>
+
+    $(function () {
+        console.log($("#msg").html());
+        if($("#msg").html()!=''){
+            alert($("#msg").html());
+        }
+    })
+
+
+</script>
 </body>
 </html>

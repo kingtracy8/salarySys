@@ -15,12 +15,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
+       String uri = request.getRequestURI();
+        if(uri.contains("/login")){
+            return true;
+        }
         Object employees = request.getSession().getAttribute("user");
         if (employees==null){
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
-//            if (employees.getEpId().equals(null)){
-//                request.getRequestDispatcher("/LoginFirst.jsp").forward(request, response);
-//            }
+            request.getSession().setAttribute("msg","对不起，您还没有登录，请先登录！");
+            request.getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
+            return false;
         }
         return true;
     }
