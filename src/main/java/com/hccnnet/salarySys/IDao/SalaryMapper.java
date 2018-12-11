@@ -23,4 +23,12 @@ public interface SalaryMapper {
     List<Salary> selectByEpId(@Param("epId") Integer epId, @Param("limit") Integer limit, @Param("offset") Integer offset);
 
     Integer selectCountByEpId(@Param("epId") Integer epId);
+
+    List<Salary> selectAll(@Param("limit") Integer limit, @Param("offset") Integer offset);
+
+    List<Salary> selectAllBySub(@Param("subjection") String subjection,@Param("limit") Integer limit, @Param("offset") Integer offset);
+
+    Integer selectAllCount();
+
+    Integer selectAllCountBySub(@Param("subjection") String subjection);
 }

@@ -45,6 +45,10 @@
             var ifm1 = document.getElementById("ifrbody1");
             ifm1.height = document.documentElement.clientHeight;
             ifm1.width = document.documentElement.clientWidth;
+
+            var ifm2 = document.getElementById("ifrbody2");
+            ifm2.height = document.documentElement.clientHeight;
+            ifm2.width = document.documentElement.clientWidth;
         }
     </script>
 
@@ -71,7 +75,7 @@
             <p><span><c:out value="${sessionScope.user.department}"></c:out></span></p>
             <p><span><c:out value="${sessionScope.user.phone}"></c:out></span></p>
             <p>
-                <a>退出登录</a>
+                <a href="/salarysys/logout">退出登录</a>
             </p>
         </div>
         <div class="meun-title">信息查询</div>
@@ -110,6 +114,15 @@
                 <h3><a href="/salarysys/getSelfSalaryPage" target="#ifrbody1">新页面打开</a></h3>
                 <%--<iframe id="ifrbody2" name="ifrbody2" src="http://localhost:8080/salarysys/getSelfSalaryPage" frameborder="0" onload="changeFrameHeight()" scrolling="no"></iframe>--%>
             </div>
+
+            <!--查询员工工资-->
+
+            <div role="tabpanel " class="tab-pane " id="Query">
+                <a href="/salarysys/IsHostOrSub" target="_blank">请点击验证权限</a>
+                <iframe id="ifrbody2 " name="ifrbody2"   scrolling="no" frameborder="no ">查询员工工资</iframe>
+            </div>
+
+
             <!--工资表上传-->
 
             <div role="tabpanel" class="tab-pane" id="upLoad">
@@ -117,11 +130,7 @@
                 <div><a href="/salarysys/ToUpload" target="ifrbody1">上传Excel文件需要权限，请点击这里验证是否有权限上传。</a></div>
                 <iframe id="ifrbody1" name="ifrbody1" frameborder="0" onload="changeFrameHeight()" scrolling="no"></iframe>
             </div>
-            <!--查询员工工资-->
 
-            <div role="tabpanel " class="tab-pane " id="Query ">
-                <%--<iframe id="ifrbody2 " name="ifrbody2 " src="http://localhost:8080/salarysys/ToUpload"  scrolling="no" frameborder="no ">查询员工工资</iframe>--%>
-            </div>
 
         </div>
     </div>

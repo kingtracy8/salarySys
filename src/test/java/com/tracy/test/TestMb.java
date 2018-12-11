@@ -36,8 +36,9 @@ public class TestMb {
     public void test(){
 //        logger.info(JSON.toJSONString(iEmployeesService.selectByPrimaryKey(11)));
 //        List<Employees> Employees = iEmployeesService.selectByUserName("yg1");
-        List<Salary> salaryList = iSalaryService.selectByEpId(45120939,0,10);
-        logger.info(JSON.toJSONString(salaryList.get(0)));
+//        List<Salary> salaryList = iSalaryService.selectByEpId(45120939,0,10);
+        List<Salary> salaryList = iSalaryService.selectAllBySub("环江",0,10);
+        logger.info(JSON.toJSONString(iSalaryService.selectAllCountBySub("环江")));
 
 //        Integer i = iSalaryService.selectCountByEpId(45120939);
 //        logger.info(JSON.toJSONString(i));

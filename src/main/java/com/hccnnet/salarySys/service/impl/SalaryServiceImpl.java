@@ -31,4 +31,24 @@ public class SalaryServiceImpl implements ISalaryService{
     public Integer selectCountByEpId(Integer epId) {
         return salaryMapper.selectCountByEpId(epId);
     }
+
+    @Override
+    public List<Salary> selectAll(Integer limit, Integer offset) {
+        return salaryMapper.selectAll(limit,offset);
+    }
+
+    @Override
+    public List<Salary> selectAllBySub(String subjection, Integer limit, Integer offset) {
+        return salaryMapper.selectAllBySub(subjection,limit,offset);
+    }
+
+    @Override
+    public Integer selectAllCount() {
+        return salaryMapper.selectAllCount();
+    }
+
+    @Override
+    public Integer selectAllCountBySub(String subjection) {
+        return salaryMapper.selectAllCountBySub(subjection);
+    }
 }

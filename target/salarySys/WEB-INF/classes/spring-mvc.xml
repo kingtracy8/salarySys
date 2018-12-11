@@ -75,10 +75,35 @@
     </bean>
 
     <mvc:interceptors>
+
+        <!--&lt;!&ndash;配置登录拦截器&ndash;&gt;-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**"/>-->
+            <!--<mvc:exclude-mapping path="salarysys/login"/>-->
+            <!--<mvc:exclude-mapping path="salarysys/getSelfSalary"/>-->
+            <!--<bean class="com.hccnnet.salarySys.interceptor.LoginInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+
         <mvc:interceptor>
             <mvc:mapping path="/salarysys/ToUpload"/>
             <bean class="com.hccnnet.salarySys.interceptor.UploadInterceptor"/>
         </mvc:interceptor>
+        <!--配置查询所有员工资接口拦截器-->
+        <mvc:interceptor>
+            <mvc:mapping path="/salarysys/getAllSalaryPage"/>
+            <mvc:mapping path="/salarysys/getAllSalary"/>
+            <bean class="com.hccnnet.salarySys.interceptor.QueryAllInterceptor"/>
+        </mvc:interceptor>
+
+        <!--配置县份查询所有员工资接口拦截器-->
+        <mvc:interceptor>
+            <mvc:mapping path="/salarysys/getAllSalaryPageBySub"/>
+            <mvc:mapping path="/salarysys/getAllSalaryBySub"/>
+            <bean class="com.hccnnet.salarySys.interceptor.QueryAllBySubInterceptor"/>
+        </mvc:interceptor>
+
+
+
     </mvc:interceptors>
 
 </beans>

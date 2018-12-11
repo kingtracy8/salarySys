@@ -43,17 +43,8 @@
   <sql id="Base_Column_List" >
     sa_id, date, month, ep_id, ep_name, position, annual, global, profession, overtime, 
     welfare, special, special1, special2, other_welfare, monthly_performance, should_pay, 
-    pension_d, pension_c, idleness_d, idleness_c, medical_d, medical_c, 
-enterprise_annuity, 
-    
-housing, 
-withhold_other, 
-withhold_w_e, 
-withhold_rent, 
-withhold_union, 
-withhold_trash, 
-    tax, withhold_total, real_total, last, this_d, tax_refund, tax_base
-  </sql>
+    pension_d, pension_c, idleness_d, idleness_c, medical_d, medical_c,enterprise_annuity,
+    housing,withhold_other,withhold_w_e,withhold_rent,withhold_union,withhold_trash,tax,withhold_total,real_total,last,this_d,tax_refund,tax_base</sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -565,5 +556,36 @@ FROM
     count(sa_id)
     from salary
     where ep_id = #{epId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select
+    *
+    from salary
+    LIMIT #{limit},#{offset}
+  </select>
+  <select id="selectAllBySub" resultMap="BaseResultMap" >
+SELECT
+	*
+FROM
+	salary s,
+	employees e
+WHERE
+	s.ep_id = e.ep_id
+	AND e.subjection = #{subjection,jdbcType=CHAR}
+    LIMIT #{limit},#{offset}
+  </select>
+  <select id="selectAllCount" resultType="java.lang.Integer">
+    select
+    count(sa_id)
+    from salary
+  </select>
+  <select id="selectAllCountBySub" resultType="java.lang.Integer">
+    select
+    count(sa_id)
+    from salary s,
+	employees e
+    WHERE
+	s.ep_id = e.ep_id
+	AND e.subjection = #{subjection,jdbcType=CHAR}
   </select>
 </mapper>

@@ -18,7 +18,12 @@ public class UploadInterceptor extends HandlerInterceptorAdapter {
 
        Employees employees = (Employees) request.getSession().getAttribute("user");
       if(!"人力资源部".equals(employees.getDepartment())){
-          //如果不是人力资源部的人
+          //如果不是 人力资源部的人
+          request.getRequestDispatcher("/error.jsp").forward(request, response);
+          return false;
+      }
+      if(!"本部".equals(employees.getSubjection())){
+          //如果不是 本部 人力资源部的人
           request.getRequestDispatcher("/error.jsp").forward(request, response);
           return false;
       }
